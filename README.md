@@ -1,4 +1,4 @@
-# PhysMotion: Physics-Grounded Dynamics From a Single Image
+# ScenDi:  3D-to-2D Scene Diffusion Cascades for Urban Generation
 
 The source code of this website is borrowed from [nerfies](https://github.com/nerfies/nerfies.github.io). We thank the authors for sharing the template.
 
