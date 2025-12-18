@@ -236,16 +236,15 @@
 
   <section class="section">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered"></div>
-      <h2 class="title is-3">Pipeline</h2>
+      <h2 class="title is-3 has-text-centered">Pipeline</h2>
       <img id="method" width="100%" src="./static/images/pipeline.svg" alt="ScenDi pipeline"/>
       <p>
         ScenDi leverages 3D and 2D diffusion cascades to generate high-quality urban scenes. <strong>Top:</strong> We first build a Voxel-to-3DGS VQ-VAE to reconstruct scenes in a feed-forward manner.
         The input is a colored voxel grid $\mathcal{V}$ constructed based on off-the-shelf metric depth estimator, whereas the output is a set of 3D Gaussian primitives $\mathcal{G}$. 
-        Then, we train a 3D diffusion model $\boldsymbol{\epsilon}_{\theta}^{\text{3D}}$ on the latent space $\mathbf{z}^{\mathcal{V}}$ to generate coarse 3D scenes, optionally conditioning on signals such as road maps or 
+        Then, we train a 3D diffusion model ${\epsilon}_{\theta}^{\text{3D}}$ on the latent space $\mathbf{z}^{\mathcal{V}}$ to generate coarse 3D scenes, optionally conditioning on signals such as road maps or 
         text prompts to enable explicit control over the content. <strong>Bottom:</strong> Based on the coarse 3D scene, we train a 2D video diffusion model to refine foreground appearance details 
         as well as generate distant areas. We achieve this by adopting video clip $\tilde{\mathcal{C}}$ rendered from generated 3DGS as 3D conditional signals to fine-tune a conditional 
-        2D latent diffusion model $\boldsymbol{\epsilon}_{\phi}^{\text{2D}}$.
+        2D latent diffusion model ${\epsilon}_{\phi}^{\text{2D}}$.
       </p>
     </div>
   </section>
