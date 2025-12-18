@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  <section class="hero is-light is-small">
+  <!-- <section class="hero is-light is-small">
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
@@ -198,9 +198,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   
-  <section class="section">
+  <section class="section section-gray">
     <div class="container is-max-desktop">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
@@ -208,15 +208,18 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We introduce <strong>PhysMotion</strong>, a novel framework that leverages principled physics-based simulations to guide intermediate 
-              3D representations generated from a single image and input conditions (e.g. applied force and torque), producing high-quality, physically plausible 
-              video generation. By utilizing continuum mechanics-based simulations as a prior knowledge, our approach addresses the limitations of traditional 
-              data-driven generative models and result in more consistent physically plausible motions. Our framework begins by reconstructing a feed-forward 3D 
-              Gaussian from a single image through geometry optimization. This representation is then time-stepped using a differentiable Material Point Method (MPM) 
-              with continuum mechanics-based elastoplasticity models, which provides a strong foundation for realistic dynamics, albeit at a coarse level of detail. 
-              To enhance the geometry, appearance, and ensure spatiotemporal consistency, we refine the initial simulation using a text-to-image (T2I) diffusion model 
-              with cross-frame attention, resulting in a physically plausible video that retains intricate details comparable to the input image. We conduct comprehensive 
-              qualitative and quantitative evaluations to validate the efficacy of our method. 
+              Recent advancements in 3D object generation using diffusion models have achieved remarkable success, 
+              but generating realistic 3D urban scenes remains challenging. Existing methods relying solely on 3D 
+              diffusion models tend to suffer a degradation in appearance details, while those utilizing only 2D 
+              diffusion models typically compromise camera controllability. To overcome this limitation, we propose ScenDi, 
+              a method for urban scene generation that integrates both 3D and 2D diffusion models. We first train a 3D latent 
+              diffusion model to generate 3D Gaussians, enabling the rendering of images at a relatively low resolution. 
+              To enable controllable synthesis, this 3DGS generation process can be optionally conditioned by specifying 
+              inputs such as 3d bounding boxes, road maps, or text prompts. Then, we train a 2D video diffusion model to 
+              enhance appearance details conditioned on rendered images from the 3D Gaussians. By leveraging the coarse 3D 
+              scene as guidance for 2D video diffusion, ScenDi generates desired scenes based on input conditions and 
+              successfully adheres to accurate camera trajectories. Experiments on two challenging real-world datasets, 
+              Waymo and KITTI-360, demonstrate the effectiveness of our approach. 
             </p>
           </div>
         </div>
@@ -238,7 +241,7 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Pipeline</h2>
       <img id="method" width="100%" src="./static/images/pipeline.svg" alt="ScenDi pipeline"/>
-      <p>
+      <p class="has-text-justified">
         ScenDi leverages 3D and 2D diffusion cascades to generate high-quality urban scenes. <strong>Top:</strong> We first build a Voxel-to-3DGS VQ-VAE to reconstruct scenes in a feed-forward manner.
         The input is a colored voxel grid $\mathcal{V}$ constructed based on off-the-shelf metric depth estimator, whereas the output is a set of 3D Gaussian primitives $\mathcal{G}$. 
         Then, we train a 3D diffusion model ${\epsilon}_{\theta}^{\text{3D}}$ on the latent space $\mathbf{z}^{\mathcal{V}}$ to generate coarse 3D scenes, optionally conditioning on signals such as road maps or 
