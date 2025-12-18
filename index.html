@@ -227,12 +227,14 @@
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Pipeline</h2>
-      <img src="./static/images/pipeline.png" class="interpolation-image" />
+      <img src="./static/images/pipeline.pdf" class="interpolation-image" />
       <p>
-        Given a single image input, we introduce a novel pipeline to generate high-fidelity, physics-grounded video with 3D understanding. 
-        Our pipeline consists of two main stages: first, we perform a single view 3DGS reconstruction of segmented object from the input image, 
-        then synthesize a physics-grounded coarse object dynamics. Next, we apply a difusion-based video enhancement to produce the final enhanced video 
-        with backgrounds, enabling users to create visually compelling, physics-driven video from a single image with an applied conditional force or torque.
+        ScenDi leverages 3D and 2D diffusion cascades to generate high-quality urban scenes. \textit{Top:} We first build a Voxel-to-3DGS VQ-VAE to reconstruct scenes in a feed-forward manner.
+        The input is a colored voxel grid $\cV$ constructed based on off-the-shelf metric depth estimator, whereas the output is a set of 3D Gaussian primitives $\cG$. 
+        Then, we train a 3D diffusion model  $\bepsilon_\theta^{\text{3D}}$ on the latent space $\bz^{\cV}$ to generate coarse 3D scenes, optionally conditioning on signals such as road maps or 
+        text prompts to enable explicit control over the content. \textit{Bottom:} Based on the coarse 3D scene, we train a 2D video diffusion model to refine foreground appearance details 
+        as well as generate distant areas. We achieve this by adopting video clip $\tilde{\cC}$ rendered from generated 3DGS as 3D conditional signals to fine-tune a conditional 
+        2D latent diffusion model $\bepsilon_\phi^{\text{2D}}$.
       </p>
     </div>
   </section>
