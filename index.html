@@ -217,15 +217,10 @@
 
     <h3>Image-to-Video Baselines </h3>
     <!-- Video comparison -->
-    <div class="video-container">
-      <div class="video-item">
-          <video controls autoplay muted loop>
-          <h4>Comparison with Image-to-Video Baselines on KITTI-360</h4>
-          <source src="./static/videos/i2v_baselines.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-      </div>
-    </div>
+    <video id="comparison" autoplay muted controls loop playsinline height="100%">
+      <source src="./video/demo_video.mp4"
+        type="video/mp4">
+    </video>
   </section>
   
   <section class="video-comparison-section">
@@ -292,7 +287,7 @@
   }
   .video-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, 1.8fr);
+      grid-template-columns: repeat(2, 1.8fr);
       gap: 20px;
       justify-items: center;
   }
